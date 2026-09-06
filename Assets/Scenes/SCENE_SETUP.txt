@@ -1,0 +1,34 @@
+SCENE SETUP (PASSOS RÁPIDOS - copie isto para `Assets/Scenes/` ou siga no Editor)
+
+1) Crie uma cena nova (File > New Scene) e salve como "MainScene".
+2) Crie o chão: GameObject > 3D Object > Plane. Renomeie para "Ground".
+3) Player:
+   - GameObject vazio > renomeie para "Player" e posicione em (0,1,0).
+   - Adicione componente CharacterController.
+   - Tag: "Player" (crie a Tag se não existir).
+   - Anexe o script `PlayerController` ao objeto Player.
+   - Crie um GameObject filho (ex: "Muzzle") posicionado à frente do jogador (ex: 0,1,0.5) e arraste para o campo `muzzle`.
+   - Crie/arraste a câmera principal como `cameraTransform` (ou crie um pivot que siga o jogador).
+
+4) Projectile prefab:
+   - GameObject > 3D Object > Sphere. Adicione Rigidbody (uncheck Use Gravity se preferir), Collider.
+   - Anexe o script `Projectile`.
+   - Transform scale pequeno (ex: 0.2).
+   - Arraste para a pasta `Assets/Prefabs/` (crie a pasta) para virar Prefab e delete a instância de cena.
+
+5) Weapon:
+   - Crie um GameObject vazio (ex: "Weapon") ou anexe `Weapon` ao Player.
+   - No campo `projectilePrefab`, arraste o prefab criado.
+   - Ajuste `projectileSpeed` e `fireCooldown` conforme desejar.
+
+6) NPC:
+   - GameObject > 3D Object > Capsule (nomeie "NPC"). Posicione em (5,1,5).
+   - Anexe `NPCPatrol` e `NPCHealth`.
+   - Crie objetos vazios para waypoints (ex: Waypoint1, Waypoint2) e arraste para o array `waypoints`.
+
+7) Teste:
+   - No Editor, pressione Play. Use WASD para mover e clique esquerdo para atirar.
+
+Notas:
+- Este protótipo usa placeholders (primitivas) para manter o repositório leve.
+- Se quiser que eu adicione cenas .unity e prefabs já configurados, eu posso fazer o upload, mas o tamanho aumenta (a cena é texto YAML, mas há pastas Library/ que não devem ser versionadas).
